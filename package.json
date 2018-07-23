@@ -1,0 +1,30 @@
+{
+  "name": "todoist-electron",
+  "version": "0.1.0",
+  "description": "Todoist electron implementation ",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^2.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grandsilence/todoist-electron.git"
+  },
+  "keywords": [
+    "todoist",
+    "electron",
+    "tasks",
+    "taskmanager"
+  ],
+  "author": "Grand Silence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grandsilence/todoist-electron/issues"
+  },
+  "homepage": "https://github.com/grandsilence/todoist-electron#readme"
+}
