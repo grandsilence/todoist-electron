@@ -25,11 +25,7 @@ function createMainWindow () {
 
   // Save window size to settings before close
   mainWindow.on('close', function(e) {
-    const currentSize = mainWindow.getSize();
-    settings.window.size = {
-      width: currentSize[0],
-      height: currentSize[1]
-    };
+    settings.window.setSize(mainWindow.getSize());
   });
 }
 

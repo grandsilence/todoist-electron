@@ -30,6 +30,15 @@ const window = {
             
             window.size = newSize;
             settings.set('window.size', window.size);
+        },
+        setSize: function(widthAndHeight) {
+            if (typeof widthAndHeight === 'undefined' || widthAndHeight.length < 2) {
+                return;
+            }
+            this.size = {
+                width: widthAndHeight[0],
+                height: widthAndHeight[1],
+            };
         }
     }
 }
