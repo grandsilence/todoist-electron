@@ -1,49 +1,36 @@
-import { app, BrowserWindow } from 'electron';
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win;
+const {app, BrowserWindow} = require('electron');
+var mainWindow;
 
 function createWindow () {
-    // Создаёт окно браузера.
-    win = new BrowserWindow({width: 800, height: 600});
-    
-    // и загрузит index.html приложение.
-    win.loadFile('index.html');
-    
-    // Open the DevTools.
-    win.webContents.openDevTools();
-    
-    // Возникает, когда окно будет закрыто.
-    win.on('closed', () => {
-        // Разбирает объект окна, обычно вы можете хранить окна     
-        // в массиве, если ваше приложение поддерживает несколько окон в это время,
-        // тогда вы должны удалить соответствующий элемент.
-        win = null
-    });
+  // Create the browser window.
+  mainWindow = new BrowserWindow({width: 800, height: 600, frame: false});
+
+  // и загрузит index.html приложение.
+  mainWindow.loadURL('https://todoist.com');
+  mainWindow.webContents.on('did-finish-load', function() {
+    mainWindow.webContents.insertCSS(`
+
+    `);
+  });
+
+  mainWindow.webContents.on('dom-ready', function() {
+    mainWindow.webContents.insertCSS(`
+    body { font-family: Arial, Tahoma, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !important; }
+
+    /* Draggable elements */
+    #top_bar, #left_menu, #content, #editor
+    { -webkit-app-region: drag; }
+
+    /* Disable drag for some inner elements */
+    #top_icons, #agenda_view, #quick_find, .left_menu_toggle, #list_holder
+    { -webkit-app-region: no-drag; }
+    `);
+  });
+
+ 
+
+  //let contents = win.webContents;
+  //contents.getElementById('top_bar').style = "display:none";
 }
 
-// Этот метод будет вызываться, когда Electron закончит 
-// инициализацию и готова к созданию окон браузера.
-// Некоторые интерфейсы API могут использоваться только после возникновения этого события.
 app.on('ready', createWindow);
-
-// Выйти, когда все окна будут закрыты.
-app.on('window-all-closed', () => {
-    // На macOS это обычно для приложений и их строки меню   
-    // оставаться активным до тех пор, пока пользователь не выйдет явно с помощью Cmd + Q
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-});
-
-app.on('activate', () => {
-    // На MacOS это общее для того чтобы создать окно в приложении, когда значок 
-    // dock нажали и нет других открытых окон.
-    if (win === null) {
-        createWindow();
-    }
-});
-
-// В этом файле вы можете включить код другого основного процесса 
-// вашего приложения. Можно также поместить их в отдельные файлы и применить к ним require.
