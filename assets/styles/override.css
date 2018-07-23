@@ -1,3 +1,6 @@
+/* Hide scrollbar */
+::-webkit-scrollbar { display: none; }
+
 /* Override default font */
 body, textarea, input, .richtext_editor { 
     font-family: Arial, Tahoma, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !important;
