@@ -7,11 +7,45 @@ body, textarea, input, .richtext_editor {
 }
 
 /* === Draggable windows elements === */
+
+/*#top_bar, #left_menu {
+    -webkit-app-region: drag;
+}*/
+
+/* Disable drag for some inner elements */
+/*#top_icons, #agenda_view, #quick_find, 
+.left_menu_toggle,
+#top_filters, .expansion_panel {
+    -webkit-app-region: no-drag;
+}*/
+
 /* Draggable elements */
-#top_bar, #left_menu {
+#top_bar_inner {
     -webkit-app-region: drag;
 }
-/* Disable drag for some inner elements */
-#top_icons, #agenda_view, #quick_find, .left_menu_toggle, #list_holder {
+
+.left_menu_toggle, .quick_find,
+#sync_state_icon, #quick_add_task_holder, #before_pie, #top_completed_holder,
+#notifications_counter, #gear_holder {
     -webkit-app-region: no-drag;
+}
+
+
+
+
+/* Override large link close button for draggable window */
+.left_menu_show .left_menu_toggle {
+    padding-right: 40px !important;
+}
+
+/* Smaller search box */
+@media only screen and (max-width: 870px) {
+    #quick_find .quick_find {
+        width: 110px !important;
+    }
+}
+
+/* Remove unsupported features */
+#quick_find .help_icon {
+    display: none;
 }
