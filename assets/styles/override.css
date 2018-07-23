@@ -20,7 +20,7 @@ body, textarea, input, .richtext_editor {
 }*/
 
 /* Draggable elements */
-#top_bar_inner {
+#top_bar {
     -webkit-app-region: drag;
 }
 
@@ -30,8 +30,13 @@ body, textarea, input, .richtext_editor {
     -webkit-app-region: no-drag;
 }
 
-
-
+/* Disable drag for image "Completed today" */
+#completed_today > .illustration {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
 
 /* Override large link close button for draggable window */
 .left_menu_show .left_menu_toggle {
@@ -39,13 +44,13 @@ body, textarea, input, .richtext_editor {
 }
 
 /* Smaller search box */
-@media only screen and (max-width: 870px) {
+@media only screen and (max-width: 750px) {
     #quick_find .quick_find {
         width: 110px !important;
     }
 }
 
-/* Remove unsupported features */
-#quick_find .help_icon {
+/* Remove unsupported / trash features */
+#quick_find .help_icon, .sharing {
     display: none;
 }
