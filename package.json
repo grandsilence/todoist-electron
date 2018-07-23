@@ -4,7 +4,8 @@
   "description": "Todoist electron implementation ",
   "main": "main.js",
   "dependencies": {
-    "electron": "^2.0.5"
+    "electron": "^2.0.5",
+    "electron-settings": "^3.2.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,12 +1,14 @@
 const {app, BrowserWindow, session} = require('electron');
+const settings = require('./settings');
 const fs = require('fs');
 const path = require('path');
 
-var mainWindow;
-function createWindow () {
+let mainWindow;
+function createMainWindow () {
   // Create the browser window
   mainWindow = new BrowserWindow({
-    width: 800, height: 600, frame: false, center: true, show: false
+    width: settings.window.size.width, height: settings.window.size.height,
+    frame: false, center: true, show: false
   });
   
   // ready-to-show /*mainWindow.once('ready-to-show', function() {});*/
@@ -20,6 +22,15 @@ function createWindow () {
     mainWindow.show();
     mainWindow.focus();
   });
+
+  // Save window size to settings before close
+  mainWindow.on('close', function(e) {
+    const currentSize = mainWindow.getSize();
+    settings.window.size = {
+      width: currentSize[0],
+      height: currentSize[1]
+    };
+  });
 }
 
 app.on('ready', function() {
@@ -30,6 +41,10 @@ app.on('ready', function() {
   session.defaultSession.webRequest.onBeforeRequest(filter, (details, callback) => {
     callback({cancel: true})
   });
-  // Initilize window and open todoist
-  createWindow();
+
+  createMainWindow();
+});
+
+app.on('window-all-closed', function (e) {
+  app.quit();
 });
