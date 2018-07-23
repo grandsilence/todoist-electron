@@ -12,24 +12,26 @@ body, textarea, input, .richtext_editor {
 #top_bar {
     -webkit-app-region: drag;
 }
-.left_menu_toggle, .quick_find,
+/*
+.left_menu_toggle, .quick_find input, .quick_find img,
 #sync_state_icon, #quick_add_task_holder, #before_pie, #top_completed_holder,
 #notifications_counter, #gear_holder {
-    -webkit-app-region: no-drag;
-}
+    -webkit-app-region: no-drag !important;
+}*/
 
 /* Draggable left menu empty content */
 #left_menu {
-    -webkit-app-region: drag;;
+    -webkit-app-region: drag;
 }
 
 #top_filters {
     padding-top: 0 !important;
     margin-top: 24px !important;
 }
+/*
 #top_filters, .expansion_panel {
     -webkit-app-region: no-drag;
-}
+}*/
 #left_menu > #list_holder {
     padding-bottom: 0 !important;
     margin-bottom: 30px;
@@ -41,9 +43,12 @@ body, textarea, input, .richtext_editor {
 }
 
 /* Smaller search box */
+.quick_find {
+    width: 135px !important;
+}
 @media only screen and (max-width: 750px) {
     #quick_find .quick_find {
-        width: 110px !important;
+        width: 115px !important;
     }
 }
 
