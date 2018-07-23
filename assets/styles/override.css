@@ -1,4 +1,14 @@
-html, body {
-    background-color: red;
+/* Override default font */
+body, textarea, input, .richtext_editor { 
+    font-family: Arial, Tahoma, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !important;
 }
-#top_bar { -webkit-app-region: drag; }
+
+/* === Draggable windows elements === */
+/* Draggable elements */
+#top_bar, #left_menu {
+    -webkit-app-region: drag;
+}
+/* Disable drag for some inner elements */
+#top_icons, #agenda_view, #quick_find, .left_menu_toggle, #list_holder {
+    -webkit-app-region: no-drag;
+}
