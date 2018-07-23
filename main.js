@@ -8,7 +8,8 @@ function createMainWindow () {
   // Create the browser window
   mainWindow = new BrowserWindow({
     width: settings.window.size.width, height: settings.window.size.height,
-    frame: false, center: true, show: false
+    frame: false, center: true, show: false,
+    icon: path.join(__dirname, 'assets/icons/win/icon.ico')
   });
   
   // ready-to-show /*mainWindow.once('ready-to-show', function() {});*/
