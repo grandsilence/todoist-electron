@@ -8,17 +8,17 @@ install:
 script:
     - APP_VERSION=v0.2.$TRAVIS_BUILD_NUMBER
     - npm run build-win
-    - zip -r Windows_$APP_VERSION.zip _builds/todoist-electron-win32-ia32
+    - zip -r Windows_$(APP_VERSION).zip _builds/todoist-electron-win32-ia32
 before_deploy:
     - git config --local user.name "Grand Silence"
     - git config --local user.email "mixtape774@gmail.com"
-    - git tag "$APP_VERSION"
+    - git tag "$(APP_VERSION)"
 deploy:
   provider: releases
   api_key:
-    secure: $GIT_RELEASES_KEY
+    secure: "hLSjoGJCl+Fi0OTTD9e/qjUGTPdjTSZmvxrw/YARboUYjxLay9zQhLVOZ2Q4V4wvmeBiO04/zDc1dZVSTA3K2FKthNPVrxJzTz5DtmC4S2T78/TX6YHlSYwD1a5pPkoj4SP6obcKfRu1NyGIZNKPP+H2kg2siN6kVv/UKdUqlqjVYoosneyVcxIyShdsO47uKkT8uo5SEJC2CgXwAuNXaNdFnNasi4RjsR8MVZmTzcuWvLUjHvRPQYy0Ils20eOTw5Zqqa9seQJMr+VezorFcjBEwlwisIDf9YE2reeihuwLnAmz4MocVuvmbX+bmsKuYIPzz/JErrbigkkWq5ob8GlsK66MFjoU/qvKHCtSBVHgqmNuk6Bxf4/xRnAYFJigcFajz/w8axkjYm44/sctO6oAMaFQ8ZDqGUqD4ueSAisTjVyJH0tr6LZ1y9/rHIqdPouV+sT3VMIgldD+7HoPAKNaA61KmGkAd1S0YEGQno5MadgXj3CZJsrLFzA9Ebjc30bJCXNJuKF2Hm+hSRK/hPV/p8BDRAicadqyWtFWsl6QGWdeN9WnbcKw2zeRwpuV5aZLA1EM/VgyJDzgKvqFbEZtk5V53WONlciNxZA37HrH8kUGyTcAUGw1gkb81F0Ei19Q/yDlhAbWNkb95q+y+6hS2PRAMzKTceJVfInZyuE="
   file:
-    - "Windows_$APP_VERSION.zip"
+    - "Windows_$(APP_VERSION).zip"
   skip_cleanup: true
   branch: master
   on:
