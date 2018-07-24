@@ -23,6 +23,9 @@ deploy:
   branch: master
   on:
     tags: false
+branches:
+  only:
+  - master
 cache:
   apt: true
   directories:
