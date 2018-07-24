@@ -2,8 +2,6 @@ language: node_js
 node_js:
   - 8
 before_install:
-  - curl "travis/api/get-build-by-commit?project=foo&commit=$TRAVIS_COMMIT"
-  - if build.finished then skip
   - sudo apt-get install -y wine
 install:
     - npm install
