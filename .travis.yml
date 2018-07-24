@@ -7,13 +7,13 @@ install:
     - npm install
 script:
     - npm run build-win
-    - zip -r _builds/todoist-electron-win32-ia32 .
+    - zip -r windows.zip _builds/todoist-electron-win32-ia32
 deploy:
   provider: releases
   api_key:
     secure: $GIT_RELEASES_KEY
   file:
-    - "todoist-electron-win32-ia32.zip"
+    - "windows.zip"
   skip_cleanup: true
   on:
     tags: false
