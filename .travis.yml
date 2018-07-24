@@ -15,9 +15,7 @@ deploy:
   file:
     - "windows.zip"
   skip_cleanup: true
-  on:
-    tags: false
-    branch: master
+  branch: master
 cache:
   apt: true
   directories:
