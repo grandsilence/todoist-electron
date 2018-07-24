@@ -22,11 +22,9 @@ deploy:
   file:
     - "Windows_$APP_VERSION.zip"
   skip_cleanup: true
-  branches:
-  only:
-  - master
   on:
     tags: false
+    branch: master
 branches:
   only:
   - master
