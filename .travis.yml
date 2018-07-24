@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "lts/*"
+  - 8
 before_install:
   - sudo apt-get install -y wine
 install:
@@ -17,6 +17,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: false
+    branch: master
 cache:
   apt: true
   directories:
