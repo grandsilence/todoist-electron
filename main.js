@@ -8,16 +8,17 @@ function createMainWindow () {
   // Create the browser window
   mainWindow = new BrowserWindow({
     width: settings.window.size.width, height: settings.window.size.height,
-    frame: true, center: true, show: false,
+    frame: true, center: true,
+    // show: false,
     autoHideMenuBar: true,
     icon: path.join(__dirname, 'assets/icons/win/icon.ico')
   });
   
   // ready-to-show  
-  mainWindow.on('ready-to-show', function() {
+  /*mainWindow.on('ready-to-show', function() {
     mainWindow.show();
     mainWindow.focus();
-  });
+  });*/
 
   mainWindow.loadURL('https://todoist.com/');
 
@@ -46,5 +47,6 @@ app.on('ready', function() {
 });
 
 app.on('window-all-closed', function (e) {
-  app.quit();
+  if (process.platform !== 'darwin')
+    app.quit();
 });
