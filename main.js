@@ -3,15 +3,32 @@ const settings = require('./settings');
 const fs = require('fs');
 const path = require('path');
 
-let mainWindow;
+//to make singleton instance
+let mainWindow = null;
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (mainWindow == null) {
+    return;
+  }
+  // Focus created window
+  if (mainWindow.isMinimized()) {
+    mainWindow.restore();
+  }
+  mainWindow.focus();
+})
+if (isSecondInstance) {
+  app.quit()
+  return;
+}
+
 function createMainWindow () {
   // Create the browser window
   mainWindow = new BrowserWindow({
     width: settings.window.size.width, height: settings.window.size.height,
     frame: true, center: true,
-    // show: false,
+    show: false,
     autoHideMenuBar: true,
-    icon: path.join(__dirname, 'assets/icons/win/icon.ico')
+    icon: path.join(__dirname, '_builds/icons/win/icon.ico')
   });
   
   // ready-to-show  
@@ -21,6 +38,10 @@ function createMainWindow () {
   });*/
 
   mainWindow.loadURL('https://todoist.com/');
+
+  // Hack: remove blink blank window (when started second instance)
+  mainWindow.show();
+  mainWindow.focus();
 
   mainWindow.webContents.on('dom-ready', function() {
     // Inject CSS

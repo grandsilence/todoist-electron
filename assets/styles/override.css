@@ -18,3 +18,9 @@ body, textarea, input, .richtext_editor {
 	-webkit-user-drag: none;
 	-webkit-app-region: no-drag;
 }
+
+/* Remove unsupported / trash features */
+#quick_find .help_icon, .sharing, #completed_today,
+.menu_buttons.priorities {
+    display: none;
+}

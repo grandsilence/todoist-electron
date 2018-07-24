@@ -44,12 +44,6 @@
     }
 }
 
-/* Remove unsupported / trash features */
-#quick_find .help_icon, .sharing, #completed_today,
-.menu_buttons.priorities {
-    display: none;
-}
-
 /* Disable ghost link drag for image "Completed today" */
 /*#completed_today > .illustration {
     user-select: none;
