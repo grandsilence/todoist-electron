@@ -4,13 +4,16 @@
   "description": "Todoist electron implementation ",
   "main": "main.js",
   "dependencies": {
-    "electron": "^2.0.5",
     "electron-settings": "^3.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "electron": "^2.0.5",
+    "electron-packager": "^12.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . todoist-electron --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=GrandSilence --version-string.FileDescription=Todoist --version-string.ProductName=\"Todoist\""
   },
   "repository": {
     "type": "git",
