@@ -1,6 +1,6 @@
 {
   "name": "todoist-electron",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Todoist Electron implementation with some features.",
   "main": "main.js",
   "dependencies": {
