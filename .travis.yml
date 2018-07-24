@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "lts/*"
 before_install:
-  - sudo apt-get install -y wim
+  - sudo apt-get install -y wine
 install:
     - npm install
 script:
