@@ -1,6 +1,8 @@
 # Todoist Electron [![Build Status](https://travis-ci.org/grandsilence/todoist-electron.svg?branch=master)](https://travis-ci.org/grandsilence/todoist-electron)
 It's a web wrapper for Windows / Linux based on Electron Framework.
 
+![Todoist web like interface on Windows](https://raw.githubusercontent.com/grandsilence/todoist-electron/master/assets/images/todoist.gif)
+
 # Features
 - Disabled Google Analytics
 - Replaced fonts to GDI-safe (nice readable when DirectWrite disabled)
