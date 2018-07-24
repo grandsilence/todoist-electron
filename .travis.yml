@@ -26,6 +26,15 @@ deploy:
 branches:
   only:
   - master
+skip_commits:
+  files:
+    - .gitignore
+    - jsconfig.json
+    - launch.json
+    - package.json
+    - package-lock.json
+    - README.md
+    - rebuild_win.bat
 cache:
   apt: true
   directories:
