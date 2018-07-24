@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "lts/8"
+install:
+    - npm install
+script:
+    - npm run build-win
+    - zip -r _builds/todoist-electron-win32-ia32 ./_bulds/windows.zip
+    
+deploy:
+  provider: releases
+  api_key:
+    secure: GIT_RELEASES_KEY
+  file:
+    - "_bulds/windows.zip"
+
+  skip_cleanup: true
+  on:
+    tags: false

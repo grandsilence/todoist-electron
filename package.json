@@ -1,7 +1,7 @@
 {
   "name": "todoist-electron",
   "version": "0.1.0",
-  "description": "Todoist electron implementation ",
+  "description": "Todoist Electron implementation with some features.",
   "main": "main.js",
   "dependencies": {
     "electron-settings": "^3.2.0"
@@ -13,11 +13,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/electron .",
-    "make-icons": "./node_modules/.bin/electron-icon-maker --input=./assets/icons/logo_transparent.png --output=./assets",
-    "build-win": "./node_modules/.bin/electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=_builds --version-string.CompanyName=GrandSilence --version-string.FileDescription=\"Todoist based on Electron framework\" --version-string.ProductName=\"Todoist Electron\"",
-    "build-linux": "./node_modules/.bin/electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=_builds",
-    "build-mac": "./node_modules/.bin/electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=_builds"
+    "start": "./node_modules/.bin/electron .",    
+    "build-win": "./node_modules/.bin/electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=_builds/icons/win/icon.ico --prune=true --out=_builds --version-string.CompanyName=GrandSilence --version-string.FileDescription=\"Todoist based on Electron framework\" --version-string.ProductName=\"Todoist Electron\"",
+    "build-linux": "./node_modules/.bin/electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=_builds/icons/png/1024x1024.png --prune=true --out=_builds",
+    "build-mac": "./node_modules/.bin/electron-packager . --overwrite --platform=darwin --arch=x64 --icon=_builds/icons/mac/icon.icns --prune=true --out=_builds",
+    "build-icons": "./node_modules/.bin/electron-icon-maker --input=./assets/icon.png --output=./_builds",
+    "postinstall": "npm run build-icons"
   },
   "repository": {
     "type": "git",

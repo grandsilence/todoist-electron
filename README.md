@@ -1,4 +1,4 @@
-# Todoist Electron
+# Todoist Electron [![Build Status](https://travis-ci.org/grandsilence/todoist-electron.svg?branch=master)](https://travis-ci.org/grandsilence/todoist-electron)
 It's a web wrapper for Windows / Linux based on Electron Framework.
 
 # Features
