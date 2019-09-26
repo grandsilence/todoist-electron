@@ -1,3 +1,6 @@
+# Deprecated!
+Please use [Chrome (Cent Browser) PWA extension](https://github.com/grandsilence/chrome-pwa-apps). It's extension comparable.
+
 # Todoist Electron [![Build Status](https://travis-ci.com/grandsilence/todoist-electron.svg?branch=master)](https://travis-ci.com/grandsilence/todoist-electron)
 It's a web wrapper for Windows / Linux based on Electron Framework.
 
